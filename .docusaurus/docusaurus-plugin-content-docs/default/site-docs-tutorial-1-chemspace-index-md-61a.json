@@ -1,0 +1,27 @@
+{
+  "id": "tutorial_1_chemspace/index",
+  "title": "ChemSpace: Objectives and actions",
+  "description": "This tutorial",
+  "source": "@site/docs/tutorial_1_chemspace/index.md",
+  "sourceDirName": "tutorial_1_chemspace",
+  "slug": "/tutorial_1_chemspace/",
+  "permalink": "/docs/tutorial_1_chemspace/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial_1_chemspace/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 0,
+  "frontMatter": {
+    "sidebar_position": 0
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Tutorial 1 - Chemical space exploration",
+    "permalink": "/docs/category/tutorial-1---chemical-space-exploration"
+  },
+  "next": {
+    "title": "Construction of a working chemical space",
+    "permalink": "/docs/tutorial_1_chemspace/construction_of_chemical_space"
+  }
+}

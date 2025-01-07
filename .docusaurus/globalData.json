@@ -1,0 +1,63 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/tidyscreen_documentation/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/tidyscreen_documentation/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "interaction_with_project",
+              "path": "/tidyscreen_documentation/docs/interaction_with_project",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/tidyscreen_documentation/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "project_presentation",
+              "path": "/tidyscreen_documentation/docs/project_presentation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "projects_structure",
+              "path": "/tidyscreen_documentation/docs/projects_structure",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial_1_chemspace/construction_of_chemical_space",
+              "path": "/tidyscreen_documentation/docs/tutorial_1_chemspace/construction_of_chemical_space",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial_1_chemspace/project_background",
+              "path": "/tidyscreen_documentation/docs/tutorial_1_chemspace/project_background",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/tutorial-1---chemical-space-exploration",
+              "path": "/tidyscreen_documentation/docs/category/tutorial-1---chemical-space-exploration",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/tidyscreen_documentation/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}
