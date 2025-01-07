@@ -1,7 +1,7 @@
 {
   "id": "intro",
   "title": "Introduction to TidyScreen",
-  "description": "TidyScreen is a Python package developed at the Medicinal Chemistry Laboratory (MedChemLab ), which is part of the Department of Pharmaceutical Sciences, Faculty of Chemical Sciences, National University of Córdoba, Argentina.",
+  "description": "TidyScreen is a Python package developed at the Medicinal Chemistry Laboratory (MedChemLab), which is part of the Department of Pharmaceutical Sciences, Faculty of Chemical Sciences, National University of Córdoba, Argentina.",
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
   "slug": "/intro",

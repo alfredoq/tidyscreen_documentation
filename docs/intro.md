@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # Introduction to TidyScreen
 
-TidyScreen is a Python package developed at the Medicinal Chemistry Laboratory (MedChemLab ), which is part of the Department of Pharmaceutical Sciences, Faculty of Chemical Sciences, National University of Córdoba, Argentina. 
+TidyScreen is a Python package developed at the Medicinal Chemistry Laboratory (MedChemLab), which is part of the Department of Pharmaceutical Sciences, [Faculty of Chemical Sciences](https://www.fcq.unc.edu.ar/), National University of Córdoba, Argentina. 
 
 At MedChemLab we have been working for several years in the execution of virtual screening campaigns (VSC) in the search of new chemical entities that may constitute candidate as potentially usefull bioactive therapeutic compounds.
 
