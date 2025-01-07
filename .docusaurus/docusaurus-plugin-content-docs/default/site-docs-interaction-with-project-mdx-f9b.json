@@ -1,0 +1,27 @@
+{
+  "id": "interaction_with_project",
+  "title": "Running a TidyScreen project",
+  "description": "A typical vHTS project is comprised by three main stages:",
+  "source": "@site/docs/interaction_with_project.mdx",
+  "sourceDirName": ".",
+  "slug": "/interaction_with_project",
+  "permalink": "/tidyscreen_documentation/docs/interaction_with_project",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/interaction_with_project.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Projects structure",
+    "permalink": "/tidyscreen_documentation/docs/projects_structure"
+  },
+  "next": {
+    "title": "Tutorial 1 - Chemical space exploration",
+    "permalink": "/tidyscreen_documentation/docs/category/tutorial-1---chemical-space-exploration"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "id": "projects_structure",
   "title": "Projects structure",
-  "description": "As presented before, the main objective of TidyScreen is to organize and store data associated to the vHTS campaing, facilitating its execution. Thus, it is not surprising that much of this organization relies on the use of a hierachical structure of folders that is mantained for every single project. This organization allows an easy interaction with the project.",
+  "description": "Directories hierarchy",
   "source": "@site/docs/projects_structure.md",
   "sourceDirName": ".",
   "slug": "/projects_structure",
@@ -22,7 +22,7 @@
     "permalink": "/tidyscreen_documentation/docs/project_presentation"
   },
   "next": {
-    "title": "Interacting with a project",
+    "title": "Running a TidyScreen project",
     "permalink": "/tidyscreen_documentation/docs/interaction_with_project"
   }
 }

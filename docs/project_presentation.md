@@ -81,4 +81,4 @@ test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
 
 From this point on, all `ChemSpace` actions will be invoked on the  `test1_proj_CS` object. For details on such actions y rationale behind their execution please revise the [dedicated tutorial](tutorial_1_chemspace/project_background).
 
-A central phylosophy of TidyScreen is the **storage of information in a consistent folder structure**, which is created at the moment of project creation. In order to get familiar with the inner workings of TidyScreen, it is higly recommendable that the knows how the directories tree and associated hierarchy works, which is presented in the following section. 
+A central phylosophy of TidyScreen is the **storage of information in a consistent folder structure**, which is created at the moment of project creation. In order to get familiar with the inner workings of TidyScreen, it is higly recommendable that the user knows how the directories tree and associated hierarchy works, which is presented in the following section. 

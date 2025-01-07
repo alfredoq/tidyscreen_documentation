@@ -1,7 +1,7 @@
 {
   "id": "interaction_with_project",
-  "title": "Interacting with a project",
-  "description": "A typical vHTS project is comprised by four stages:",
+  "title": "Running a TidyScreen project",
+  "description": "A typical vHTS project is comprised by three main stages:",
   "source": "@site/docs/interaction_with_project.md",
   "sourceDirName": ".",
   "slug": "/interaction_with_project",

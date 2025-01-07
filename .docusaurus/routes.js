@@ -3,41 +3,6 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/tidyscreen_documentation/__docusaurus/debug',
-    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug', 'b33'),
-    exact: true
-  },
-  {
-    path: '/tidyscreen_documentation/__docusaurus/debug/config',
-    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/config', 'eec'),
-    exact: true
-  },
-  {
-    path: '/tidyscreen_documentation/__docusaurus/debug/content',
-    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/content', 'efe'),
-    exact: true
-  },
-  {
-    path: '/tidyscreen_documentation/__docusaurus/debug/globalData',
-    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/globalData', '4aa'),
-    exact: true
-  },
-  {
-    path: '/tidyscreen_documentation/__docusaurus/debug/metadata',
-    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/metadata', 'c23'),
-    exact: true
-  },
-  {
-    path: '/tidyscreen_documentation/__docusaurus/debug/registry',
-    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/registry', '43d'),
-    exact: true
-  },
-  {
-    path: '/tidyscreen_documentation/__docusaurus/debug/routes',
-    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/routes', '9bd'),
-    exact: true
-  },
-  {
     path: '/tidyscreen_documentation/helloMarkdown',
     component: ComponentCreator('/tidyscreen_documentation/helloMarkdown', '3fd'),
     exact: true
@@ -49,15 +14,15 @@ export default [
   },
   {
     path: '/tidyscreen_documentation/docs',
-    component: ComponentCreator('/tidyscreen_documentation/docs', '0d2'),
+    component: ComponentCreator('/tidyscreen_documentation/docs', '00e'),
     routes: [
       {
         path: '/tidyscreen_documentation/docs',
-        component: ComponentCreator('/tidyscreen_documentation/docs', '36d'),
+        component: ComponentCreator('/tidyscreen_documentation/docs', '3d8'),
         routes: [
           {
             path: '/tidyscreen_documentation/docs',
-            component: ComponentCreator('/tidyscreen_documentation/docs', 'eb2'),
+            component: ComponentCreator('/tidyscreen_documentation/docs', 'd6b'),
             routes: [
               {
                 path: '/tidyscreen_documentation/docs/category/tutorial-1---chemical-space-exploration',
@@ -67,7 +32,7 @@ export default [
               },
               {
                 path: '/tidyscreen_documentation/docs/interaction_with_project',
-                component: ComponentCreator('/tidyscreen_documentation/docs/interaction_with_project', '3ff'),
+                component: ComponentCreator('/tidyscreen_documentation/docs/interaction_with_project', '75d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

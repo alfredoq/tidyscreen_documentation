@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Construction of a working chemical space
 
-The chemical space to be used in a vHTS campaign can be constructed using diverse methodological approaches, each one particularly adapted to the research objectives. Some of the alternatives are:
+The chemical space to be explored during a vHTS campaign can be constructed using diverse methodological approaches, each one particularly adapted to the research objectives. Some of the alternatives are:
 
     - Compilation of commercially available compounds;
     - Retrieval of compounds libraries from databases such as [ChEMBL](https://www.ebi.ac.uk/chembl/);
