@@ -1,64 +1,107 @@
 {
-  "/tidyscreen_documentation/helloMarkdown-3fd": {
-    "__comp": "1f391b9e",
+  "/tidyscreen_documentation/__docusaurus/debug-b33": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "a7456010"
+      "plugin": "plugin---tidyscreen-documentation-docusaurus-debugb-38-e75"
+    }
+  },
+  "/tidyscreen_documentation/__docusaurus/debug/config-eec": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---tidyscreen-documentation-docusaurus-debugb-38-e75"
+    }
+  },
+  "/tidyscreen_documentation/__docusaurus/debug/content-efe": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---tidyscreen-documentation-docusaurus-debugb-38-e75"
     },
-    "content": "3b693608"
+    "__props": "__props---tidyscreen-documentation-docusaurus-debug-contentee-5-136"
+  },
+  "/tidyscreen_documentation/__docusaurus/debug/globalData-4aa": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---tidyscreen-documentation-docusaurus-debugb-38-e75"
+    }
+  },
+  "/tidyscreen_documentation/__docusaurus/debug/metadata-c23": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---tidyscreen-documentation-docusaurus-debugb-38-e75"
+    }
+  },
+  "/tidyscreen_documentation/__docusaurus/debug/registry-43d": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---tidyscreen-documentation-docusaurus-debugb-38-e75"
+    }
+  },
+  "/tidyscreen_documentation/__docusaurus/debug/routes-9bd": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---tidyscreen-documentation-docusaurus-debugb-38-e75"
+    }
+  },
+  "/tidyscreen_documentation/helloMarkdown-3fd": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---tidyscreen-documentation-hello-markdowna-74-3eb"
+    },
+    "content": "content---tidyscreen-documentation-hello-markdown-3-b-6-0a2"
   },
   "/tidyscreen_documentation/markdown-page-15c": {
-    "__comp": "1f391b9e",
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
     "__context": {
-      "plugin": "a7456010"
+      "plugin": "plugin---tidyscreen-documentation-hello-markdowna-74-3eb"
     },
-    "content": "393be207"
+    "content": "content---tidyscreen-documentation-markdown-page-393-acf"
   },
   "/tidyscreen_documentation/docs-0d2": {
-    "__comp": "5e95c892",
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
-      "plugin": "aba21aa0"
+      "plugin": "plugin---tidyscreen-documentation-docsaba-b64"
     }
   },
   "/tidyscreen_documentation/docs-36d": {
-    "__comp": "a7bd4aaa",
-    "__props": "1da51449"
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---tidyscreen-documentation-docs-1-da-556"
   },
   "/tidyscreen_documentation/docs-eb2": {
-    "__comp": "a94703ab"
+    "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/tidyscreen_documentation/docs/category/tutorial-1---chemical-space-exploration-8fa": {
-    "__comp": "14eb3368",
-    "__props": "ebedd5ce"
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---tidyscreen-documentation-docs-category-tutorial-1-chemical-space-explorationebe-623"
   },
   "/tidyscreen_documentation/docs/interaction_with_project-3ff": {
-    "__comp": "17896441",
-    "content": "8fd39c9d"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---tidyscreen-documentation-docs-interaction-with-project-8-fd-6bd"
   },
   "/tidyscreen_documentation/docs/intro-573": {
-    "__comp": "17896441",
-    "content": "0e384e19"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---tidyscreen-documentation-docs-intro-0-e-3-64b"
   },
   "/tidyscreen_documentation/docs/project_presentation-80e": {
-    "__comp": "17896441",
-    "content": "f805c86c"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---tidyscreen-documentation-docs-project-presentationf-80-140"
   },
   "/tidyscreen_documentation/docs/projects_structure-04e": {
-    "__comp": "17896441",
-    "content": "6c8553e5"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---tidyscreen-documentation-docs-projects-structure-6-c-8-c4d"
   },
   "/tidyscreen_documentation/docs/tutorial_1_chemspace/construction_of_chemical_space-e9f": {
-    "__comp": "17896441",
-    "content": "c351ba4f"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---tidyscreen-documentation-docs-tutorial-1-chemspace-construction-of-chemical-spacec-35-637"
   },
   "/tidyscreen_documentation/docs/tutorial_1_chemspace/project_background-a72": {
-    "__comp": "17896441",
-    "content": "8c644740"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---tidyscreen-documentation-docs-tutorial-1-chemspace-project-background-8-c-6-c82"
   },
   "/tidyscreen_documentation/-b6d": {
-    "__comp": "c4f5d8e4",
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
     "__context": {
-      "plugin": "a7456010"
+      "plugin": "plugin---tidyscreen-documentation-hello-markdowna-74-3eb"
     },
-    "config": "5e9f5e1a"
+    "config": "config---tidyscreen-documentation-5-e-9-19c"
   }
 }

@@ -11,17 +11,17 @@
   "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/interaction_with_project.md",
   "tags": [],
   "version": "current",
-  "sidebarPosition": 2,
+  "sidebarPosition": 3,
   "frontMatter": {
-    "sidebar_position": 2
+    "sidebar_position": 3
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "TidyScreen projects",
-    "permalink": "/tidyscreen_documentation/docs/project_presentation"
-  },
-  "next": {
     "title": "Projects structure",
     "permalink": "/tidyscreen_documentation/docs/projects_structure"
+  },
+  "next": {
+    "title": "Tutorial 1 - Chemical space exploration",
+    "permalink": "/tidyscreen_documentation/docs/category/tutorial-1---chemical-space-exploration"
   }
 }

@@ -18,11 +18,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Interacting with a project",
-    "permalink": "/tidyscreen_documentation/docs/interaction_with_project"
+    "title": "TidyScreen projects",
+    "permalink": "/tidyscreen_documentation/docs/project_presentation"
   },
   "next": {
-    "title": "Tutorial 1 - Chemical space exploration",
-    "permalink": "/tidyscreen_documentation/docs/category/tutorial-1---chemical-space-exploration"
+    "title": "Interacting with a project",
+    "permalink": "/tidyscreen_documentation/docs/interaction_with_project"
   }
 }
