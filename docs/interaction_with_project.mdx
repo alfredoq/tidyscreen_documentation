@@ -27,36 +27,106 @@ The chemical space to be explored during a vHTS campaign can be constructed usin
 
 ### Reading compounds from a custom file
 
-This is the most simple way of introducing a list of compounds into a TidyScreen project. As mentioned before, these compounds will be stored in the SQL database corresponding to the `chemspace`dimension.
+This is the most simple way of introducing one or more compounds into a TidyScreen project. As mentioned before, these compounds will be stored in the SQL database corresponding to the `chemspace` dimension. **Note:** When a file containing compounds is uploaded into TidyScreen, a copy of such file is stored in the *'chemspace/raw'* folder.
 
-[This](/files/aliphatic_alcohols.csv) is a sample `.csv` file containing five aliphatic alcohols, and we can use it to store the corresponding compounds into the `chemspace` database using the following script:
+[This](/files/aliphatic_alcohols.csv) is a sample `.csv` file containing five aliphatic alcohols, and we can use it as and example to store the corresponding compounds into the `chemspace` database using the following script:
 
 ```python
 ...
-# We will add compounds present in 'aliphatic_alcohols.csv' into 'test1' project
+## We will add compounds present in 'aliphatic_alcohols.csv' into the already existing 'test1' project
 
-## Activate a project to perform actions
+# Activate a project to perform actions
 test1_proj = proj_mg.ActivateProject("test1")
 
-## Once activated, initialize ChemSpace actions on the project
+# Once activated, initialize ChemSpace actions on the project
 test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
 
-## In this example load a set of compounds
+# Once the ChemSapce dimension is activated, load the compounds present as SMILES in the .csv file
 test1_proj_CS.process_raw_cpds_file("$PATH_TO_FILE/aliphatic_alcohols.csv")
 ```
 
-Different parsing options can be applied to the .csv depending on the separator used, the existence of a header or compounds names. In order to let TidyScreen know how to process the file, the first two lines of the file will be printed to the terminal, a serie of questions should be answered respect to:
+Different parsing options can be applied to the `.csv` file depending on the separator used, the existence of a header or compounds names. In order to let TidyScreen know how to process the file, when executing the script the first two lines will be printed to the terminal and serie of questions will be presented in order to guide the parsing process. The following responses should be provided:
 
-    - Header presence (y/n): in this sample file it indeed contains a header (SMILES,Name)
-    - Separator string: In this case ','
-    - Field number corresponding to SMILES: in this file '0'
-    - Presence of molecules names (y/n): in this case 'y'
-    - Field number corresponding to the Names: in this case '1'
+`Header presence (y/n):` # in this sample file it indeed contains a header (SMILES,Name)
 
-Upon providing the requested information, all molecules corresponding to the SMILES present in the `.csv`file will be stored in an SQL table named after the provided file ('aliphatic_alcohols') and saved into the '/processed_data/chemspace.db' database file of the `chemspace` domain. (See the <Link to="/docs/projects_structure" target="_blank" rel="noopener noreferrer">
+`Separator string:` # In this case ','
+
+`Field number corresponding to SMILES:` # in this file '0'
+
+`Presence of molecules names (y/n):` # in this case 'y'
+
+`Field number corresponding to the Names:` # in this case '1'
+
+Upon providing the requested information, all molecules corresponding to the SMILES present in the `.csv` file will be stored in a SQL table named after the provided file (i.e. 'aliphatic_alcohols') and saved into the '/processed_data/chemspace.db' database file of the `chemspace` domain. (See the <Link to="/docs/projects_structure" target="_blank" rel="noopener noreferrer">
   Projects folders structure
 </Link> section)  
 
+Once loaded, the table containing the compounds can be inspected or modified using different approaches, such as:
+
+    - **Listing the tables** present in '/processed_data/chemspace.db' database file of the `chemspace` domain:
+
+```python
+...
+test1_proj = proj_mg.ActivateProject("test1")
+
+test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
+
+# Execute the listing method on the project ChemSpace object
+test1_proj_CS.list_ligands_tables()
+```
+
+output:
+
+```bash
+Tables in database corresponding to project: 'test1':
+
+aliphatic_alcohols # <- the table containing the loaded compounds
+
+# At the moment only one table of compounds is present in the database.
+# If more tables are loaded, they will appear in alpahbetical order in the output.
+```
+
+    - **Listing of compounds** present in a given table:
+
+```python
+...
+test1_proj = proj_mg.ActivateProject("test1")
+
+test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
+
+# List the compounds present in the 'aliphatic_alcohols' table.
+test1_proj_CS.list_cpds_in_table("aliphatic_alcohols")
+```
+
+output
+
+```bash
+('CO', 'methanol')
+('CCO', 'ethanol')
+('CCCO', 'propanol')
+('CCCCO', 'butanol')
+('CCCCCO', 'pentanol')
+A total of 5 molecules are present in table: 'aliphatic_alcohols'
+```
+   
+    - Using dedicated tools to manage SQL databases:
+
+        - Use <Link to="https://www.visidata.org/" target="_blank" rel="noopener noreferrer"> VISIDATA </Link> to explore `chemspace.db` in the terminal.
+
+        - Use <Link to="https://sqlitebrowser.org/" target="_blank" rel="noopener noreferrer"> DB Browser </Link> to explore `chemspace.db` using a GUI.
+
+
+    - **Deleting** a loaded table:
+
+```python
+...
+test1_proj = proj_mg.ActivateProject("test1")
+
+test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
+
+# The 'aliphatic_alcohols' can be removed from 'chemspace.db'.
+test1_proj_CS.delete_cpds_table("aliphatic_alcohols")
+```
 
 ### Filtering of commercially available compounds;
 

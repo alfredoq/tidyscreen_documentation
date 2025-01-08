@@ -3,6 +3,41 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/tidyscreen_documentation/__docusaurus/debug',
+    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug', 'b33'),
+    exact: true
+  },
+  {
+    path: '/tidyscreen_documentation/__docusaurus/debug/config',
+    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/config', 'eec'),
+    exact: true
+  },
+  {
+    path: '/tidyscreen_documentation/__docusaurus/debug/content',
+    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/content', 'efe'),
+    exact: true
+  },
+  {
+    path: '/tidyscreen_documentation/__docusaurus/debug/globalData',
+    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/globalData', '4aa'),
+    exact: true
+  },
+  {
+    path: '/tidyscreen_documentation/__docusaurus/debug/metadata',
+    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/metadata', 'c23'),
+    exact: true
+  },
+  {
+    path: '/tidyscreen_documentation/__docusaurus/debug/registry',
+    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/registry', '43d'),
+    exact: true
+  },
+  {
+    path: '/tidyscreen_documentation/__docusaurus/debug/routes',
+    component: ComponentCreator('/tidyscreen_documentation/__docusaurus/debug/routes', '9bd'),
+    exact: true
+  },
+  {
     path: '/tidyscreen_documentation/helloMarkdown',
     component: ComponentCreator('/tidyscreen_documentation/helloMarkdown', '3fd'),
     exact: true
