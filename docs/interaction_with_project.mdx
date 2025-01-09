@@ -41,7 +41,7 @@ test1_proj = proj_mg.ActivateProject("test1")
 # Once activated, initialize ChemSpace actions on the project
 test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
 
-# Once the ChemSapce dimension is activated, load the compounds present as SMILES in the .csv file
+# Once the ChemSpace dimension is activated, load the compounds present as SMILES in the .csv file
 test1_proj_CS.process_raw_cpds_file("$PATH_TO_FILE/aliphatic_alcohols.csv")
 ```
 
@@ -128,9 +128,132 @@ test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
 test1_proj_CS.delete_cpds_table("aliphatic_alcohols")
 ```
 
+After a table containing molecules represented in the SMILES format is loaded into TidyScreen, it is sometimes useful to visually inspect them by depicting the structures. This can be done as follows:
+
+```python
+t1_proj = proj_mg.ActivateProject("test1")
+
+test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
+
+# Depict compounds present in 'aliphatic_alcohols' table. One or more .pn files will be written to the /chemspace/misc/$TABLE_NAME' directory.
+test1_proj_CS.plot_table_of_molecules("aliphatic_alcohols")
+
+```
+
+The file named 'aliphatic_alcohols_0.png' will be written to `/chemspace/misc/$TABLE_NAME`. 
+
+![aliphatic_alcohols](/img/aliphatic_alcohols.png)
+
+Consider that if a table containing a large number of compounds is depicted, several `.png` files will be generated, each one containing 25 (5x5) depicted molecules. Each molecule depiction is accompanied by two labels:
+
+    - ***inchi_key***: that is a unique identifier of the molecule, which is automatically computed by TidyScreen at the moment of reading the input file. This identifier will be used as the unique id of the molecule during the vHTS campaign.
+
+    - ***mol_name***: corresponding the the name that was provided by the user un the input file. 
+
+
 ### Filtering of commercially available compounds;
 
-Under construction
+Considering that most databases containing commercially available compounds are obtained using `.csv` file,  their loading into TidyScreen follows the same procedure described in the previous section. However, since these databases typically contains millions of molecules, it is frequently required to subset the whole database in order to isolate specific type of molecules. TidyScreen provides methods to apply custom chemical filter based on [SMARTS](https://www.daylight.com/dayhtml/doc/theory/theory.smarts.html) notation.
+
+Two frequently used databases of commercially available compounds are [ZINC](https://zinc.docking.org/) or [Emolecules](https://search.emolecules.com/). In [this link](/file/emolecules_sample.csv) you will find a `.csv` file containing a sample (50K molecules) of the Emolecules database in order to test TidyScreen functioning.
+
+Here we load the sample file into the corresponding `chemspace` table:
+
+```python
+...
+
+# Activate 'test1' project
+test1_proj = proj_mg.ActivateProject("test1")
+
+# Initialize ChemSpace actions on 'test1'
+test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
+
+# Load the raw file 'emolecules_sample.csv'
+test1_proj_CS.process_raw_cpds_file("$PATH_TO_FILE/emolecules_sample.csv")
+```
+
+After executing the script, TidyScreen will use available cpu cores to load the 50K structures into the corresponding table.
+
+Now, we can subset the newly created 'emolecules_sample' table. This filtering can be performed by using [SMARTS](https://www.daylight.com/dayhtml/doc/theory/theory.smarts.html) notation, and also TidyScreen provides a set of built-in custom filters used to match typical reactants. The list of available filters can be que queried as follows:
+
+```python
+from tidyscreen import config as ts_cfg
+import tidyscreen_dbs
+
+main_database = ts_cfg.MainDbConfigs()
+main_database.list_available_chem_filter()
+
+```
+
+which will output the following:
+
+```bash
+1: Aminoacids - [NX3H2,NX4+H3][CX4H]([*])[CX3H0](=[OX1])[OX2H,OX1-]
+2: Boron - B
+3: Silicon - [Si]
+4: Azide - N=[N+]=[N-]
+5: Terminal_alkyne - C#[CH]
+6: Deuterium - [2H]
+...
+```
+
+As can be seen, each chemical filter is identified by a `filter_id` followed by a `filter_name`and `filter_smarts`. The use of the filter in production is performed by spcifing the corresponding `filter_id` which is unique to each filter. During the isolation of building blocks that are or interest in a vHTS campaign it is frequently required to build a *filters pipeline*, i.e. a set of filters that are applied sequently to match chemical conditions. In this way,  TidyScreen filters molecules based on these kind of filters pipeline, which can contain one or multiple filters.
+
+A single filter pipeline can be constructed as follows:
+
+```python
+...
+# Activate 'test1' project
+test1_proj = proj_mg.ActivateProject("test1")
+
+# Initialize ChemSpace actions on 'test1'
+test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
+
+# Create a single filter including id: 1 (Aminoacids)
+test1_proj_CS.create_filters_pipeline()
+```
+
+When this script is executed, the following information will be requested:
+
+    - **Filter number to add**: corresponds to the `id` of the filter stored in the main database. If entering a multifilter pipeline, new filters will be recursively requested, so end the pipeline the word 'quit' should be entered. In this example we intend to filter aminoacids, so we will indicate '1'.
+    - **Number of instances allowed**: set the **maximum** number of filter matches to allow. Think that a given chemical moiety can be present more than once in a molecule, and we may want to filter molecules containing lets stay 'no more than two hydroxyl' groups. In this case we will indicate '1' (i.e. only 1 aminoacid scaffold should be retained).
+    - **Indicate inclusion/exclusion**: if **inclusion** is selected, when the chemical filter is matched the molecule will be retained in the results table. On the other hand, when **exlusion** is indicated, it means that if matched, the molecule will be discarded from from the results table. In this case we indicate 'I'.
+    - Pipeline name: finally, when the pipeline has been defined, a 'pipeline name' is requested in order to identify it (we will give this pipeline the name *'aminoacids'*).
+
+Once created, we can list the filters pipeline that are available for a given project. Please note that *filters pipelines* are specific to project, while the individual filter database is common to the local TidyScreen installation.
+
+**Note: add the script to show the filters pipeline available in the project**
+
+At this point we can apply the newly created filter as follows:
+
+```python
+...
+# Activate 'test1' project
+test1_proj = proj_mg.ActivateProject("test1")
+
+# Initialize ChemSpace actions on 'test1'
+test1_proj_CS = proj_mg.ChemSpaceActions(test1_proj)
+
+# The 'filters_pipeline' can be applied by indicanting the corresponding `filter_id` and `table_name`
+test1_proj_CS.apply_filters_pipeline(1,"emolecules_sample")
+
+```
+
+If everything works ok, 7 molecules containing `filter_id` = 1 exists in the table of compounds named 'emolecules_sample'. The matched molecules will be written to a table named 'emolecules_sample_filter_id_1'. As you can see, the table is named after the original table name followed by the `filter_id` that was applied.
+
+Upong depiction of the resulting table, the following molecules can be seen:
+
+![](/img/emolecules_sample_filter_id_1_0.png)
+
+A can be seen, the filtering of molecules containing aminoacids was succesfull.
+
+As expected, custom filters can be added to the default ones provided upon installation of TidyScreen. To perform this, the user should use the `add_chem_filters_from_file` , which will read a `csv` file containing the following information:
+
+- Field_1: `filter_name`
+- Field_2: `filter_smarts`
+- Field_3: `user_name`
+
+**NOTE: continue with example of adding a custom filter for thiols and filtering with 2 ids.**
 
 ### Construction of libraries from databases
 
@@ -194,41 +317,8 @@ This is the [default .csv file](/files/default_reaction_types.csv) installed upo
 
 It should be noted that sometimes the creation of a reaction SMARTS can be tricky in terms of unambiguosly matching the correct chemical groups leading to the desired reaction product. The user should check the correctness of the SMARTS notation to be included in the database, otherwise synthetic artifacts will be included in the working chemical space under construction. To aid in this process, the [SMARTS PLUS](https://smarts.plus/) is a very usefull web application to create, view and check SMARTS pattern and matching.
 
-#### Execution of a chemical reaction pipelline and storage of products
+#### Execution of a chemical reaction pipeline and storage of products
 
 Under construction
 
-## Filtering of building blocks
 
-Since the construction of working chemical space is closely related to the selection of specific building blocks involved in the above mentioned synthetic pathways, it is frequently requiered to search and filter commercially available reactants form databases such as [ZINC](https://zinc.docking.org/) or [Emolecules](https://search.emolecules.com/). In this respect, the filtering can be also performed by using [SMARTS](https://www.daylight.com/dayhtml/doc/theory/theory.smarts.html) notation, and also TidyScreen provides a set of custom filters used to match typical reactants. The list of available filters can be que queried as follows:
-
-```python
-from tidyscreen import config as ts_cfg
-import tidyscreen_dbs
-
-main_database = ts_cfg.MainDbConfigs()
-main_database.list_available_chem_filter()
-
-```
-
-which will output the following:
-
-```bash
-1: Aminoacids - [NX3H2,NX4+H3][CX4H]([*])[CX3H0](=[OX1])[OX2H,OX1-]
-2: Boron - B
-3: Silicon - [Si]
-4: Azide - N=[N+]=[N-]
-5: Terminal_alkyne - C#[CH]
-6: Deuterium - [2H]
-...
-```
-
-A was the case for the chemical reactions, each chemical filter is identified by a `filter_id` followed by a `filter_name`and `filter_smarts`. The use of the filter in production is performed by spcifing the corresponding `filter_id` which is unique to each filter.
-
-Also custom filters can be added to the default ones provided upon installation of TidyScreen. To perform this, the used should use the `add_chem_filters_from_file` , which will read a `csv` file containing the following information:
-
-- Field_1: `filter_name`
-- Field_2: `filter_smarts`
-- Field_3: `user_name`
-
-It should be noted that actions related to listing or adding chemical reactions and/or filters are associated to the `main_database`of TidyScreen and not restricted to a single project. A such, the new SMARTS added will be available for all projects managed by TidyScreen in the local computer.
